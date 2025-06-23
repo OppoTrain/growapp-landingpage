@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>جروآب – تواصل سلس لرعاية الأطفال</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Calendly -->
+    <link
+      rel="stylesheet"
+      href="https://assets.calendly.com/assets/external/widget.css"
+    />
+    <script
+      async
+      src="https://assets.calendly.com/assets/external/widget.js"
+    ></script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .icon {
+        font-size: 28px;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['"Cairo"', "sans-serif"] },
+            colors: {
+              brand: "#111827",
+              soft: "#FFFCF4",
+              yellow: "#FDF76E",
+              "yellow-dark": "#e5e056",
+            },
+            fontSize: { hero: ["42px", { lineHeight: "1.2" }] },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-soft font-sans text-brand">
+    <!-- ===== Navbar ===== -->
+    <header class="fixed inset-x-0 top-0 z-50 bg-white/90 backdrop-blur shadow">
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            src="assets/logo-foreground.png"
+            alt="جروآب شعار"
+            class="h-10 w-auto"
+          />
+
+          <span id="logoText" class="text-2xl font-bold">جروآب</span>
+        </div>
+
+        <nav class="flex-1 flex justify-center gap-8 text-sm font-medium">
+          <a id="navFeatures" href="#features" class="hover:underline"
+            >المميزات</a
+          >
+          <a id="navTestimonials" href="#testimonials" class="hover:underline"
+            >الشهادات</a
+          >
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <button
+            id="langToggle"
+            class="underline text-sm"
+            onclick="toggleLanguage()"
+          >
+            English
+          </button>
+          <button
+            id="navDemo"
+            class="bg-yellow hover:bg-yellow-dark text-brand px-4 py-2 rounded-full font-bold text-sm transition"
+            onclick="openDemo()"
+          >
+            احجز ديمو
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="h-[64px]"></div>
+    <!-- spacer -->
+
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Hero -->
+      <section class="text-center mb-20">
+        <div class="bg-white/90 backdrop-blur rounded-3xl shadow-xl px-6 py-14">
+          <img
+            src="assets/logo-foreground.png"
+            alt="جروآب شعار"
+            class="h-20 w-auto mx-auto mb-6"
+          />
+          >
+          <h1 id="heroTitle" class="text-hero font-bold mb-4">
+            تواصل سلس لرعاية الأطفال
+          </h1>
+          <p
+            id="heroSubtitle"
+            class="text-[18px] text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed"
+          >
+            يربط جروآب بين الآباء والمربيات وموظفي الحضانة، مما يجعل إدارة رعاية
+            الأطفال أبسط وأكثر شفافية للجميع.
+          </p>
+          <button
+            id="heroBtn"
+            class="bg-yellow hover:bg-yellow-dark text-brand px-8 py-3 rounded-full font-medium transition"
+            onclick="openDemo()"
+          >
+            احجز عرضًا تجريبيًا مجانيًا
+          </button>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features" class="mb-24">
+        <h2 id="featuresHeader" class="text-[32px] font-bold text-center mb-2">
+          كل ما تحتاجه في تطبيق واحد
+        </h2>
+        <p id="featuresSub" class="text-center text-gray-600 mb-10">
+          جروآب مليء بالميزات لتبسيط عمليات الحضانة الخاصة بك.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- 6 hard-coded cards so they always display -->
+          <div class="bg-white rounded-2xl p-8 text-center shadow">
+            <div
+              class="icon w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+            >
+              🖼️
+            </div>
+            <h3 id="f1t" class="text-[20px] font-bold mb-2">مشاركة الصور</h3>
+            <p id="f1d" class="text-sm text-gray-600 leading-relaxed">
+              شارك اللحظات القيمة بأمان – يحب الآباء رؤية صور أطفالهم.
+            </p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center shadow">
+            <div
+              class="icon w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+            >
+              📅
+            </div>
+            <h3 id="f2t" class="text-[20px] font-bold mb-2">تقارير يومية</h3>
+            <p id="f2d" class="text-sm text-gray-600 leading-relaxed">
+              ملخصات يومية تلقائية تطمئن الآباء وتوفّر وقت الموظفين.
+            </p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center shadow">
+            <div
+              class="icon w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+            >
+              📈
+            </div>
+            <h3 id="f3t" class="text-[20px] font-bold mb-2">تتبع نشاط الطفل</h3>
+            <p id="f3d" class="text-sm text-gray-600 leading-relaxed">
+              سجل النوم، الوجبات، والأنشطة في الوقت الفعلي.
+            </p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center shadow">
+            <div
+              class="icon w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+            >
+              📊
+            </div>
+            <h3 id="f4t" class="text-[20px] font-bold mb-2">
+              لوحة تحكم المسؤول
+            </h3>
+            <p id="f4d" class="text-sm text-gray-600 leading-relaxed">
+              إدارة التسجيلات والموظفين والفواتير بسهولة.
+            </p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center shadow">
+            <div
+              class="icon w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+            >
+              💬
+            </div>
+            <h3 id="f5t" class="text-[20px] font-bold mb-2">رسائل فورية</h3>
+            <p id="f5d" class="text-sm text-gray-600 leading-relaxed">
+              تواصل سريع وآمن مع الآباء والطاقم.
+            </p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center shadow">
+            <div
+              class="icon w-16 h-16 bg-pink-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+            >
+              🔔
+            </div>
+            <h3 id="f6t" class="text-[20px] font-bold mb-2">تنبيهات فورية</h3>
+            <p id="f6d" class="text-sm text-gray-600 leading-relaxed">
+              إشعارات تُبقي الجميع على اطلاع.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="mb-24">
+        <h2 id="testiHeader" class="text-[32px] font-bold text-center mb-3">
+          محبوب من قبل حضانات مثل حضانتك
+        </h2>
+        <p id="testiSub" class="text-center text-gray-600 mb-12">
+          لا تأخذ كلمتنا فقط – استمع إلى قادة الحضانات.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-2xl p-6 shadow">
+            <p
+              id="t1text"
+              class="italic text-gray-700 mb-4 text-sm leading-relaxed"
+            >
+              "جروآب سهّل تواصلنا مع الآباء بشكل لا يُصدق..."
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="icon w-10 h-10 bg-orange-400 rounded-full flex items-center justify-center text-white"
+              >
+                ج
+              </div>
+              <div>
+                <p id="t1name" class="font-bold text-sm">جيسيكا ب.</p>
+                <p id="t1title" class="text-xs text-gray-600">
+                  مديرة حضانة القلوب السعيدة
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow">
+            <p
+              id="t2text"
+              class="italic text-gray-700 mb-4 text-sm leading-relaxed"
+            >
+              "لوحة التحكم وفّرت وقتًا هائلًا – لا يمكنني التخلي عنها!"
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="icon w-10 h-10 bg-purple-400 rounded-full flex items-center justify-center text-white"
+              >
+                م
+              </div>
+              <div>
+                <p id="t2name" class="font-bold text-sm">مايكل ب.</p>
+                <p id="t2title" class="text-xs text-gray-600">
+                  مالك أكاديمية البراعم
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow">
+            <p
+              id="t3text"
+              class="italic text-gray-700 mb-4 text-sm leading-relaxed"
+            >
+              "رسائل وتنبيهات جروآب مفيدة جدًا لنا وللأهالي."
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="icon w-10 h-10 bg-green-400 rounded-full flex items-center justify-center text-white"
+              >
+                س
+              </div>
+              <div>
+                <p id="t3name" class="font-bold text-sm">سارة ج.</p>
+                <p id="t3title" class="text-xs text-gray-600">
+                  مديرة حضانة الابتسامات
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section class="text-center mb-20">
+        <div class="bg-[#FFF9E6] rounded-3xl px-6 py-14 mx-auto max-w-3xl">
+          <h2 id="finalTitle" class="text-[28px] font-bold mb-4">
+            هل أنت مستعد لتحويل حضانتك؟
+          </h2>
+          <p id="finalSub" class="text-gray-700 mb-8 leading-relaxed">
+            اكتشف كيف يمكن لجروآب تحسين التواصل وتوفير الوقت وإسعاد الآباء.
+          </p>
+          <button
+            id="finalBtn"
+            class="bg-yellow hover:bg-yellow-dark text-brand px-8 py-3 rounded-full font-medium transition"
+            onclick="openDemo()"
+          >
+            احجز العرض التجريبي الآن
+          </button>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="text-center text-xs text-gray-500 mb-10">
+        <p id="footerText">© 2025 جروآب. جميع الحقوق محفوظة.</p>
+      </footer>
+    </div>
+
+    <script>
+      /* Calendly */
+      function openDemo() {
+        Calendly.initPopupWidget({
+          url: "https://calendly.com/abualsoudt/30min",
+        }); // change slug
+        return false;
+      }
+
+      /* Simple translation swap */
+      const trans = {
+        ar: {
+          dir: "rtl",
+          logo: "جروآب",
+          lang: "English",
+          demo: "احجز ديمو",
+          navF: "المميزات",
+          navT: "الشهادات",
+          heroT: "تواصل سلس لرعاية الأطفال",
+          heroS:
+            "يربط جروآب بين الآباء والمربيات وموظفي الحضانة، مما يجعل إدارة رعاية الأطفال أبسط وأكثر شفافية للجميع.",
+          heroBtn: "احجز عرضًا تجريبيًا مجانيًا",
+          featH: "كل ما تحتاجه في تطبيق واحد",
+          featS: "جروآب مليء بالميزات لتبسيط عمليات الحضانة الخاصة بك.",
+          feats: [
+            [
+              "مشاركة الصور",
+              "شارك اللحظات القيمة بأمان – يحب الآباء رؤية صور أطفالهم.",
+            ],
+            [
+              "تقارير يومية",
+              "ملخصات يومية تلقائية تطمئن الآباء وتوفّر وقت الموظفين.",
+            ],
+            [
+              "تتبع نشاط الطفل",
+              "سجل النوم، الوجبات، والأنشطة في الوقت الفعلي.",
+            ],
+            [
+              "لوحة تحكم المسؤول",
+              "إدارة التسجيلات والموظفين والفواتير بسهولة.",
+            ],
+            ["رسائل فورية", "تواصل سريع وآمن مع الآباء والطاقم."],
+            ["تنبيهات فورية", "إشعارات تُبقي الجميع على اطلاع."],
+          ],
+          testiH: "محبوب من قبل حضانات مثل حضانتك",
+          testiS: "لا تأخذ كلمتنا فقط – استمع إلى قادة الحضانات.",
+          testis: [
+            [
+              '"جروآب سهّل تواصلنا مع الآباء بشكل لا يُصدق. التحديثات اليومية وفّرت لنا ساعات!"',
+              "جيسيكا ب.",
+              "مديرة حضانة القلوب السعيدة",
+            ],
+            [
+              '"لوحة التحكم وفّرت وقتًا هائلًا – لا يمكنني التخلي عنها!"',
+              "مايكل ب.",
+              "مالك أكاديمية البراعم",
+            ],
+            [
+              '"رسائل وتنبيهات جروآب مفيدة جدًا لنا وللأهالي."',
+              "سارة ج.",
+              "مديرة حضانة الابتسامات",
+            ],
+          ],
+          ctaT: "هل أنت مستعد لتحويل حضانتك؟",
+          ctaS: "اكتشف كيف يمكن لجروآب تحسين التواصل وتوفير الوقت وإسعاد الآباء.",
+          ctaBtn: "احجز العرض التجريبي الآن",
+          footer: "© 2025 جروآب. جميع الحقوق محفوظة.",
+        },
+        en: {
+          dir: "ltr",
+          logo: "GrowApp",
+          lang: "العربية",
+          demo: "Book Demo",
+          navF: "Features",
+          navT: "Testimonials",
+          heroT: "Seamless Communication for Childcare",
+          heroS:
+            "GrowApp connects parents, caregivers, and staff, making childcare management simpler and more transparent for everyone.",
+          heroBtn: "Book a Free Demo",
+          featH: "Everything You Need in One App",
+          featS:
+            "GrowApp is packed with features to streamline daycare operations.",
+          feats: [
+            [
+              "Photo Sharing",
+              "Securely share precious moments – parents love photos of their little ones.",
+            ],
+            [
+              "Daily Reports",
+              "Automatic daily summaries save staff time and reassure parents.",
+            ],
+            [
+              "Activity Tracking",
+              "Log naps, meals, and activities in real time.",
+            ],
+            [
+              "Admin Dashboard",
+              "Manage enrollments, staff, and billing with ease.",
+            ],
+            [
+              "Instant Messaging",
+              "Chat securely and quickly with parents and staff.",
+            ],
+            ["Instant Alerts", "Smart notifications keep everyone informed."],
+          ],
+          testiH: "Loved by Daycares Like Yours",
+          testiS:
+            "Don’t just take our word for it – hear from real daycare leaders.",
+          testis: [
+            [
+              '"GrowApp made parent communication incredibly easy. Daily updates saved us hours!"',
+              "Jessica B.",
+              "Happy Hearts Manager",
+            ],
+            [
+              '"The dashboard saved huge time – indispensable!"',
+              "Michael B.",
+              "Little Sprouts Owner",
+            ],
+            [
+              '"Our team and parents loved GrowApp instantly. Messages & alerts are super helpful."',
+              "Sarah J.",
+              "Smiles Nursery Director",
+            ],
+          ],
+          ctaT: "Ready to Transform Your Daycare?",
+          ctaS: "Discover how GrowApp can improve communication, save time, and delight parents.",
+          ctaBtn: "Book Your Demo Now",
+          footer: "© 2025 GrowApp. All rights reserved.",
+        },
+      };
+
+      function apply(lang) {
+        const d = trans[lang];
+        document.documentElement.lang = lang;
+        document.documentElement.dir = d.dir;
+        // navbar
+        logoText.textContent = d.logo;
+        langToggle.textContent = d.lang;
+        navDemo.textContent = d.demo;
+        navFeatures.textContent = d.navF;
+        navTestimonials.textContent = d.navT;
+        // hero
+        heroTitle.textContent = d.heroT;
+        heroSubtitle.textContent = d.heroS;
+        heroBtn.textContent = d.heroBtn;
+        // features
+        featuresHeader.textContent = d.featH;
+        featuresSub.textContent = d.featS;
+        [f1t, f2t, f3t, f4t, f5t, f6t].forEach(
+          (el, i) => (el.textContent = d.feats[i][0])
+        );
+        [f1d, f2d, f3d, f4d, f5d, f6d].forEach(
+          (el, i) => (el.textContent = d.feats[i][1])
+        );
+        // testimonials
+        testiHeader.textContent = d.testiH;
+        testiSub.textContent = d.testiS;
+        [
+          [t1text, t1name, t1title],
+          [t2text, t2name, t2title],
+          [t3text, t3name, t3title],
+        ].forEach((arr, i) => {
+          arr[0].textContent = d.testis[i][0];
+          arr[1].textContent = d.testis[i][1];
+          arr[2].textContent = d.testis[i][2];
+        });
+        // CTA & footer
+        finalTitle.textContent = d.ctaT;
+        finalSub.textContent = d.ctaS;
+        finalBtn.textContent = d.ctaBtn;
+        footerText.textContent = d.footer;
+      }
+
+      function toggleLanguage() {
+        const next = document.documentElement.lang === "ar" ? "en" : "ar";
+        apply(next);
+      }
+      apply("ar"); /* default */
+    </script>
+  </body>
+</html>
