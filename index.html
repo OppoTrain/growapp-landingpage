@@ -307,6 +307,11 @@
     </div>
 
     <script>
+        function toggleLanguage() {
+        const next = document.documentElement.lang === "ar" ? "en" : "ar";
+        apply(next);
+      }
+      apply("ar"); /* default */
       /* Calendly */
       function openDemo() {
         Calendly.initPopupWidget({
@@ -480,11 +485,7 @@
         footerText.textContent = d.footer;
       }
 
-      function toggleLanguage() {
-        const next = document.documentElement.lang === "ar" ? "en" : "ar";
-        apply(next);
-      }
-      apply("ar"); /* default */
+  
     </script>
   </body>
 </html>
