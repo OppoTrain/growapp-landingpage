@@ -479,7 +479,7 @@
         finalTitle.textContent = d.ctaT;
         finalSub.textContent = d.ctaS;
         finalBtn.textContent = d.ctaBtn;
-        footerText.textContent = d.footer;
+        footerText.innerHTML = d.footer;
       }
       function toggleLanguage() {
       const next = document.documentElement.lang === "ar" ? "en" : "ar";
