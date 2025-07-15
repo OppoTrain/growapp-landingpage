@@ -481,7 +481,7 @@
         footerText.textContent = d.footer;
       }
       function toggleLanguage() {
-      const next = document.documentElement.langToggle === "ar" ? "en" : "ar";
+      const next = document.documentElement.lang === "ar" ? "en" : "ar";
        apply(next);
       }
       apply("ar"); /* default */
